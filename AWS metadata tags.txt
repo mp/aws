@@ -1,0 +1,23 @@
+Instance metadata is data about your instance that you can use to configure or manage the running instance. This is held in the form of tags.
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html
+
+E.g.
+Getting Instance-id:
+wget -q -O - http://[HOST IP]/latest/meta-data/instance-id
+
+Alternative (run on host):
+ec2-metadata --instance-id | cut -d " " -f 2   # can retrieve other tags
+curl http://[HOST IP]/latest/meta-data/instance-id
+
+Set DT_VERSION tag:
+aws ec2 create-tags --resources $INSTANCE_ID --tags Key=DT_VERSION,Value=$DT_VERSION
+
+(On error, ran aws configure. To get credentials, go to console.aws.amazon.com, search IAM: Users
+Went to https://console.aws.amazon.com/iam/home?region=eu-west-2#/users/mayur.pant?section=security_credentials)
+Created access key ID
+Default region name eu-west-2 (eu-west-2c gives the error Could not connect to the endpoint URL: "https://ec2.eu-west-2c.amazonaws.com/"
+The local aws security credentials are stored in cd ~/.aws and can be set up with ‘aws configure’ (e.g. for Ansible, if you don’t want an interactive prompt).
+
+Get all AWS tags:
+aws ec2 describe-tags | less
+Python version: https://stackoverflow.com/questions/625644/how-to-get-the-instance-id-from-within-an-ec2-instwance

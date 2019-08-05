@@ -1,0 +1,19 @@
+AWS seems to offer a .pem file which contains the private key of the running instance.
+(For additional info on .ssh/authorised_keys, .ssh/known_hosts, .rsa, .rsa.pub see Ansible notes.)
+
+IAM allows the creation of users (Users menu) and access keys (Security credentials -> Access keys). These keys are used for setting metadata tags or general AWS errors.
+
+Logging on to the instance:
+Created keypair for running instance
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair
+https://docs.aws.amazon.com/quickstarts/latest/vmlaunch/step-2-connect-to-instance.html#sshclient
+Save the private key in the ~/.ssh/.pem file.
+ssh -i dynatrace.pem ec2-user@. . . .eu-west-2.compute.amazonaws.com
+ssh -i dynatrace.pem ec2-user@. . . .eu-west-2.compute.amazonaws.com
+
+(On security credential errors when logged into the instance, e.g. when getting the instance id, try running ‘aws configure’. To get credentials, go to console.aws.amazon.com, search IAM: Users
+Went to https://console.aws.amazon.com/iam/home?region=eu-west-2#/users/mayur.pant?section=security_credentials)
+Created access key ID
+Default region name eu-west-2 (eu-west-2c gives the error Could not connect to the endpoint URL: "https://ec2.eu-west-2c.amazonaws.com/“.
+The local security credentials are stored in cd ~/.aws and can be set up with ‘aws configure’ (e.g. for Ansible roll out - you don’t want an interactive prompt).
+

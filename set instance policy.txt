@@ -1,0 +1,6 @@
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html
+
+Applications / scripts should be using IAM roles rather than password based entry.
+IAM roles are the equivalent of SSH keys for passwordless authentication (although SSH is not IAM role based authentication).
+
+Aside form ~/.aws/, AWS security exists in a layer outside of the OS.

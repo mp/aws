@@ -1,0 +1,1 @@
+IAM allows the creation of users (Users menu) and access keys (Security credentials -> Access keys).

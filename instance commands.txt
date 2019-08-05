@@ -1,0 +1,9 @@
+aws sts get-caller-identity
+Get IAM account details which are used to call the API (also stored in ~/.aws/)
+
+aws ec2 describe-instance-status
+aws ec2 describe-instance-status —instance-id [instance-ID]
+Describes the AWS instance on CLI
+
+aws ec2 describe-tags | less
+Get all AWS tags
